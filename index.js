@@ -1,5 +1,12 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for (let i = 0; i < array.length; i++){
+    const compliment = target - array[i];
+    for (let j = 1 + i; j < array.length; j++) {
+      if(array[j] === compliment) return true;
+    }
+  }
+  return false;
 }
 
 /* 
@@ -8,6 +15,12 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  Loop through array of nums
+  identify a num that compliments to our target
+  check the remaining  nums to see the compliment 
+  if we find it return true 
+  if not return false 
+
 */
 
 /*
@@ -29,6 +42,9 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([8, 0, 8], 16));
 }
 
 module.exports = hasTargetSum;
