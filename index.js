@@ -1,10 +1,11 @@
+// o(n)
 function hasTargetSum(array, target) {
   // Write your algorithm here
-  for (let i = 0; i < array.length; i++){
-    const compliment = target - array[i];
-    for (let j = 1 + i; j < array.length; j++) {
-      if(array[j] === compliment) return true;
-    }
+  const seenNumbers = {}
+  for(const number of array){
+    const complement = target - number
+    if (complement in seenNumbers) return true
+    seenNumbers[number] = true;
   }
   return false;
 }
